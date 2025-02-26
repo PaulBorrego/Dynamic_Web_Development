@@ -5,8 +5,91 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= title %></title>
 </head>
-<body>
-    <h1><%= title %></h1>
-    <p> Welcome to <%= title %></p>
-</body>
+    <body>
+        <div class="container">
+            <div class="header">
+                <b><%= title %></b>
+            </div>
+            <div class="navigator">
+                <a href="/">Home</a>
+                <a class="active" href="/recipeList">Recipe List</a>
+            </div>
+            <div class="body">
+                <h2> Chicken </h2>
+                    <ul>
+                    <% recipes.forEach((recipe) => { %>
+                        <h2><%= recipe.product %></h2>
+                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                            <div class="popup">
+                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                            </div>
+                        </div>
+                    <% }) %>
+                    </ul>
+            </div>
+            <div class="body">
+                <h2> Beef </h2>
+                    <ul>
+                    <% recipes.forEach((recipe) => { %>
+                        <h2><%= recipe.product %></h2>
+                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                            <div class="popup">
+                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                            </div>
+                        </div>
+                    <% }) %>
+                    </ul>
+            </div>
+            <div class="body">
+                <h2> Pork </h2>
+                    <ul>
+                    <% recipes.forEach((recipe) => { %>
+                        <h2><%= recipe.product %></h2>
+                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                            <p><%= recipe.protein %></p>
+                            <div class="popup">
+                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                            </div>
+                        </div>
+                    <% }) %>
+                    </ul>
+            </div>
+            <div class="body">
+                <h2> Grain </h2>
+                    <ul>
+                    <% recipes.forEach((recipe) => { %>
+                        <h2><%= recipe.product %></h2>
+                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                            <div class="popup">
+                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                            </div>
+                        </div>
+                    <% }) %>
+                    </ul>
+            </div>
+            <div class="footer">
+                <span>
+                This page was created by:<br>
+                Paul Borrego <br>
+                <br>
+                Using help from the following sources: <br>
+                <br>
+                My Brain <br>
+                My Pain <br>
+                and W3 School
+                </span>
+            </div>
+        </div>
+        <script>
+            function showPopup(element) {
+                const popup = element.querySelector(".popup");
+                popup.style.display = "block";
+            }
+
+            function hidePopup(element) {
+                const popup = element.querySelector(".popup");
+                popup.style.display = "none";
+            }
+        </script>
+    </body>
 </html>
