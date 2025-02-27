@@ -9,14 +9,14 @@ body, .container{
     min-width: 100vh;
 }
 .container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr 12fr 3fr;
     display: grid;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
 }
 .container .header {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 3;
     text-align: center;
     align-items: center;
     display: flex;
@@ -26,7 +26,7 @@ body, .container{
     color: white;
 }
 .container .navigator {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 3;
     font-size: 18px;
     background-color: #333333;
     text-align: center; /* Centers text along with next few lines*/
@@ -41,6 +41,7 @@ body, .container{
     padding: 5px;
     margin: 5px;
     border: 2px solid gray;
+    z-index: 5;
 }
 a {
     color: white;
@@ -51,7 +52,7 @@ a {
     font-weight: bold;
 }
 .container .footer {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 3;
     background-color: #f1f1f1;
     text-align: center;
     display: flex;
@@ -95,4 +96,10 @@ span {
   padding: 8px;
   border-radius: 5px;
   pointer-events: none;
+}
+
+.popup img {
+    width: 150px;
+    height: 150px;
+    z-index: 10;
 }

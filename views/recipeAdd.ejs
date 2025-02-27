@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= title %></title>
+</head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <b><%= title %></b>
+            </div>
+            <div class="navigator">
+                <a href="/">Home</a>
+                <a href="/recipeList">Recipe List</a>
+                <a class="active" href="/recipeAdd">Add A Recipe</a>
+            </div>
+            <div class="body" style="grid-column: 1 / span 3;">
+                <h1>Enter Information For Your New Recipe!</h1>
+                <form action="recipeAdd" method="POST">
+                    <label for="product">Name Of Recipe: </label>
+                    <input type="text" id="product" name="product"><br>
+                    <label for="Protein">Protein: </label>
+                    <select type="text" id="protein" name="protein">
+                        <option value="Chicken">Chicken</option>
+                        <option value="Beef">Beef</option>
+                        <option value="Grain">Grain</option>
+                    </select> <br>
+                    <label for="img">Link to Image: </label>
+                    <input type="text" id="img" name="img"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="footer">
+                <span>
+                This page was created by:<br>
+                Paul Borrego <br>
+                <br>
+                Using help from the following sources: <br>
+                <br>
+                My Brain <br>
+                My Pain <br>
+                and W3 School
+                </span>
+            </div>
+        </div>
+        <script>
+            function showPopup(element) {
+                const popup = element.querySelector(".popup");
+                popup.style.display = "block";
+            }
+
+            function hidePopup(element) {
+                const popup = element.querySelector(".popup");
+                popup.style.display = "none";
+            }
+        </script>
+    </body>
+</html>

@@ -4,9 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var homeRouter = require("./routes/home.js");
+var homeRouter = require("./routes/index.js");
 var recipeDisplayRouter = require("./routes/recipeDisplay.js");
 var recipeListRouter = require("./routes/recipeList.js");
+var recipeAddRouter = require("./routes/recipeAdd.js");
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static('public'));
 app.use('/', homeRouter);
 app.use('/recipeDisplay', recipeDisplayRouter);
 app.use('/recipeList', recipeListRouter);
+app.use('/recipeAdd', recipeAddRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));

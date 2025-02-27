@@ -13,17 +13,21 @@
             <div class="navigator">
                 <a href="/">Home</a>
                 <a class="active" href="/recipeList">Recipe List</a>
+                <a href="/recipeAdd">Add A Recipe</a>
             </div>
             <div class="body">
                 <h2> Chicken </h2>
                     <ul>
                     <% recipes.forEach((recipe) => { %>
-                        <h2><%= recipe.product %></h2>
-                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                            <div class="popup">
-                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                        <% if (recipe.protein == 'Chicken') { %>
+                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                                <h3><%= recipe.product %></h3>
+                                <div class="popup">
+                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                </div>
                             </div>
-                        </div>
+                            <br>
+                        <% } %>
                     <% }) %>
                     </ul>
             </div>
@@ -31,26 +35,15 @@
                 <h2> Beef </h2>
                     <ul>
                     <% recipes.forEach((recipe) => { %>
-                        <h2><%= recipe.product %></h2>
-                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                            <div class="popup">
-                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                        <% if (recipe.protein == 'Beef') { %>
+                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                                <h3><%= recipe.product %> </h3>
+                                <div class="popup">
+                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                </div>
                             </div>
-                        </div>
-                    <% }) %>
-                    </ul>
-            </div>
-            <div class="body">
-                <h2> Pork </h2>
-                    <ul>
-                    <% recipes.forEach((recipe) => { %>
-                        <h2><%= recipe.product %></h2>
-                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                            <p><%= recipe.protein %></p>
-                            <div class="popup">
-                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
-                            </div>
-                        </div>
+                            <br>
+                        <% } %>
                     <% }) %>
                     </ul>
             </div>
@@ -58,12 +51,15 @@
                 <h2> Grain </h2>
                     <ul>
                     <% recipes.forEach((recipe) => { %>
-                        <h2><%= recipe.product %></h2>
-                        <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                            <div class="popup">
-                                <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                        <% if (recipe.protein == 'Grain') { %>
+                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
+                                <h3><%= recipe.product %></h3>
+                                <div class="popup">
+                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                </div>
                             </div>
-                        </div>
+                            <br>
+                        <% } %>
                     <% }) %>
                     </ul>
             </div>
