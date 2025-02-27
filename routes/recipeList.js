@@ -3,12 +3,12 @@ var router = express.Router();
 var db_connection = require('../database/connection');
  
 router.get("/", function(req,res,next) {
-    let sql = 'SELECT * FROM recipes;';
+    let sql = 'SELECT * FROM foods;';
 
     db_connection.query(sql,(err,result) => {
         if(err) throw err;
         console.log(result);
-        res.render('recipeList', {recipes: result, title: 'Recipe List'})
+        res.render('recipeList', {foods: result, title: 'Recipe List'})
     })
 });
 

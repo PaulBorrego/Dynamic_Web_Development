@@ -18,12 +18,12 @@
             <div class="body">
                 <h2> Chicken </h2>
                     <ul>
-                    <% recipes.forEach((recipe) => { %>
-                        <% if (recipe.protein == 'Chicken') { %>
+                    <% foods.forEach((food) => { %>
+                        <% if (food.Protein == 'Chicken') { %>
                             <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= recipe.product %></h3>
+                                <h3><%= food.Product %></h3>
                                 <div class="popup">
-                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
                                 </div>
                             </div>
                             <br>
@@ -34,12 +34,12 @@
             <div class="body">
                 <h2> Beef </h2>
                     <ul>
-                    <% recipes.forEach((recipe) => { %>
-                        <% if (recipe.protein == 'Beef') { %>
+                    <% foods.forEach((food) => { %>
+                        <% if (food.Protein == 'Beef') { %>
                             <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= recipe.product %> </h3>
+                                <h3><%= food.Product %> </h3>
                                 <div class="popup">
-                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
                                 </div>
                             </div>
                             <br>
@@ -50,12 +50,12 @@
             <div class="body">
                 <h2> Grain </h2>
                     <ul>
-                    <% recipes.forEach((recipe) => { %>
-                        <% if (recipe.protein == 'Grain') { %>
+                    <% foods.forEach((food) => { %>
+                        <% if (food.Protein == 'Grain') { %>
                             <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= recipe.product %></h3>
+                                <h3><%= food.Product %></h3>
                                 <div class="popup">
-                                    <img src=<%= recipe.img %> alt=<%= recipe.img_alt %>>
+                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
                                 </div>
                             </div>
                             <br>
