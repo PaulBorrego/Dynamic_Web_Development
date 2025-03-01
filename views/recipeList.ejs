@@ -15,54 +15,12 @@
                 <a class="active" href="/recipeList">Recipe List</a>
                 <a href="/recipeAdd">Add A Recipe</a>
             </div>
-            <div class="body">
-                <h2> Chicken </h2>
-                    <ul>
-                    <% foods.forEach((food) => { %>
-                        <% if (food.Protein == 'Chicken') { %>
-                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= food.Product %></h3>
-                                <div class="popup">
-                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
-                                </div>
-                            </div>
-                            <br>
-                        <% } %>
-                    <% }) %>
-                    </ul>
+            <div class="search">
+                <label for="lookup">Search</label>
+                <input type="text" id="searchTerm" name="searchTerm">
+                <button onclick="search()">?</button>
             </div>
-            <div class="body">
-                <h2> Beef </h2>
-                    <ul>
-                    <% foods.forEach((food) => { %>
-                        <% if (food.Protein == 'Beef') { %>
-                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= food.Product %> </h3>
-                                <div class="popup">
-                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
-                                </div>
-                            </div>
-                            <br>
-                        <% } %>
-                    <% }) %>
-                    </ul>
-            </div>
-            <div class="body">
-                <h2> Grain </h2>
-                    <ul>
-                    <% foods.forEach((food) => { %>
-                        <% if (food.Protein == 'Grain') { %>
-                            <div class="hover-box" onmouseover="showPopup(this)" onmouseleave="hidePopup(this)">
-                                <h3><%= food.Product %></h3>
-                                <div class="popup">
-                                    <img src=<%= food.Img %> alt=<%= food.Img_alt %>>
-                                </div>
-                            </div>
-                            <br>
-                        <% } %>
-                    <% }) %>
-                    </ul>
-            </div>
+            <%- include('./partials/food_list') %>
             <div class="footer">
                 <span>
                 This page was created by:<br>
@@ -85,6 +43,10 @@
             function hidePopup(element) {
                 const popup = element.querySelector(".popup");
                 popup.style.display = "none";
+            }
+            function search() {
+                let s = document.getElementById("searchTerm");
+                console.log(s);
             }
         </script>
     </body>

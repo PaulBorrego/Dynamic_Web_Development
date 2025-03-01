@@ -43,6 +43,9 @@ body, .container{
     border: 2px solid gray;
     z-index: 5;
 }
+.body a {
+    color: black;
+}
 a {
     color: white;
     text-decoration: none;

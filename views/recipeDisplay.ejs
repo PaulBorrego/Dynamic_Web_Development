@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/public/stylesheets/style.css" />
-    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>How To Make <%= recipe.Meal %></title>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <p> Welcome to <%= title %></p>
+    <div class="container">
+        <div class="header">
+            <b><%= recipe.Meal %></b>
+        </div>
+        <div class="navigator">
+            <a href="/">Home</a>
+            <a href="/recipeList">Recipe List</a>
+            <a href="/recipeAdd">Add A Recipe</a>
+        </div>
+        <div class="body">
+            <h1>Ingredients</h1>
+            <p> <%= recipe.Items %></p> 
+        </div>
+        <div class="body">
+            <h1>Recipe</h1>
+            <p><%= recipe.Directions %></p>
+        </div>
+        <div class="footer">
+            <span>
+            This page was created by:<br>
+            Paul Borrego <br>
+            <br>
+            Using help from the following sources: <br>
+            <br>
+            My Brain <br>
+            My Pain <br>
+            and W3 School
+            </span>
+        </div>
 </body>
 </html>
