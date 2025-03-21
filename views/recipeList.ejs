@@ -14,11 +14,11 @@
                 <a href="/">Home</a>
                 <a class="active" href="/recipeList">Recipe List</a>
                 <a href="/recipeAdd">Add A Recipe</a>
-            </div>
-            <div class="search">
-                <label for="lookup">Search</label>
-                <input type="text" id="searchTerm" name="searchTerm">
-                <button onclick="search()">?</button>
+                <div class="search">
+                    <label for="lookup">Search</label>
+                    <input type="search" id="searchTerm" name="searchTerm">
+                    <button id="searchButton" onclick="searchForFood('<%= JSON.stringify(foods)%>')">CLICK</button>
+                </div>
             </div>
             <%- include('./partials/food_list') %>
             <div class="footer">
@@ -35,6 +35,7 @@
             </div>
         </div>
         <script>
+
             function showPopup(element) {
                 const popup = element.querySelector(".popup");
                 popup.style.display = "block";
@@ -44,9 +45,14 @@
                 const popup = element.querySelector(".popup");
                 popup.style.display = "none";
             }
-            function search() {
+            function searchForFood(foods) {
+                let food_list = JSON.parse(foods);                
                 let s = document.getElementById("searchTerm");
-                console.log(s);
+                food_list.forEach(f => {
+                    if (f.Product.includes(s.value)) {
+                        console.log(f);
+                    }
+                });
             }
         </script>
     </body>
