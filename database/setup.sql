@@ -28,7 +28,7 @@ VALUES
 ('Chicken Fried Rice', 'Chicken and Rice', 'Cook Chicken, Fry Rice, Smoosh'),
 ('Spicy Chicken and Peanut Noodles', 'Chicken, Pasta, Sriracha', 'You know');
 
-INSERT INTO foods (Recipe_FK, Food_id, Product, Protein, Img, Img_alt)
+INSERT INTO foods (Recipe_FK, Product, Protein, Img, Img_alt)
 VALUES
 ((SELECT Recipe_FK FROM recipes WHERE Meal = 'Peanut Butter and Jelly'), 'Peanut Butter and Jelly', 'Grain', 'imgs/pb&j.jpg', 'Image of Peanut Butter Jelly'),
 ((SELECT Recipe_FK FROM recipes WHERE Meal = 'Beef Stroganoff'), 'Beef Stroganoff', 'Beef', 'imgs/beef_stroganoff.jpg', 'Image of Beef Stroganoff'),
