@@ -3,7 +3,6 @@ var router = express.Router();
 var db_connection = require('../database/connection');
  
 router.post('/', function(req,res) {
-    console.log(req.body);
     let sql1 = `
     INSERT INTO recipes 
     (
@@ -20,7 +19,6 @@ router.post('/', function(req,res) {
         let fork = 'SELECT Recipe_FK FROM recipes WHERE Meal=\'' + req.body.Meal + '\';';
         db_connection.query(fork,(err,foreign) => {
             if(err) throw err;
-            console.log(foreign[0].Recipe_FK);
             let sql2 = `
             INSERT INTO foods 
             (

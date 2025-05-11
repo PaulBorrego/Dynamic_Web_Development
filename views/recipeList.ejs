@@ -15,9 +15,15 @@
                 <a class="active" href="/recipeList">Recipe List</a>
                 <a href="/recipeAdd">Add A Recipe</a>
                 <div class="search">
+<<<<<<< HEAD
                     <label for="lookup" style="color: white;"></label>
                     <input type="text" id="searchTerm" name="searchTerm">
                     <button id="searchQuerry">search</button>
+=======
+                    <label for="lookup">Search</label>
+                    <input type="search" id="searchTerm" name="searchTerm">
+                    <button id="searchButton" onclick="searchForFood('<%= JSON.stringify(foods)%>')">CLICK</button>
+>>>>>>> 1940eb8e50923dc0f207689866cc5181157ace45
                 </div>
             </div>
             <%- include('./partials/food_list') %>
@@ -35,7 +41,11 @@
             </div>
         </div>
         <script>
+<<<<<<< HEAD
             const products = [];
+=======
+
+>>>>>>> 1940eb8e50923dc0f207689866cc5181157ace45
             function showPopup(element) {
                 const popup = element.querySelector(".popup");
                 popup.style.display = "block";
@@ -45,12 +55,22 @@
                 const popup = element.querySelector(".popup");
                 popup.style.display = "none";
             }
+<<<<<<< HEAD
 
             function addFoods(foods) {
                 document.getElementById("searchQuerry").addEventListener("click", search);
                 JSON.parse(foods).forEach(element => {
                     console.log(element);
                     products.push([element.Product.toLowerCase(), element.Recipe_FK, element.Img_alt, element.Img, element.Protein]);
+=======
+            function searchForFood(foods) {
+                let food_list = JSON.parse(foods);                
+                let s = document.getElementById("searchTerm");
+                food_list.forEach(f => {
+                    if (f.Product.includes(s.value)) {
+                        console.log(f);
+                    }
+>>>>>>> 1940eb8e50923dc0f207689866cc5181157ace45
                 });
             }
 

@@ -7,7 +7,6 @@ router.get("/", function(req,res,next) {
 
     db_connection.query(sql,(err,result) => {
         if(err) throw err;
-        console.log(result);
         res.render('recipeList', {foods: result, title: 'Recipe List'})
     })
 });
