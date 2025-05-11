@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= title %></title>
 </head>
-    <body>
+    <body onload="addFoods('<%=JSON.stringify(foods)%>')">
         <div class="container">
             <div class="header">
                 <b><%= title %></b>
@@ -14,11 +14,11 @@
                 <a href="/">Home</a>
                 <a class="active" href="/recipeList">Recipe List</a>
                 <a href="/recipeAdd">Add A Recipe</a>
-            </div>
-            <div class="search">
-                <label for="lookup">Search</label>
-                <input type="text" id="searchTerm" name="searchTerm">
-                <button onclick="search()">?</button>
+                <div class="search">
+                    <label for="lookup" style="color: white;"></label>
+                    <input type="text" id="searchTerm" name="searchTerm">
+                    <button id="searchQuerry">search</button>
+                </div>
             </div>
             <%- include('./partials/food_list') %>
             <div class="footer">
@@ -35,6 +35,7 @@
             </div>
         </div>
         <script>
+            const products = [];
             function showPopup(element) {
                 const popup = element.querySelector(".popup");
                 popup.style.display = "block";
@@ -44,10 +45,51 @@
                 const popup = element.querySelector(".popup");
                 popup.style.display = "none";
             }
-            function search() {
-                let s = document.getElementById("searchTerm");
-                console.log(s);
+
+            function addFoods(foods) {
+                document.getElementById("searchQuerry").addEventListener("click", search);
+                JSON.parse(foods).forEach(element => {
+                    console.log(element);
+                    products.push([element.Product.toLowerCase(), element.Recipe_FK, element.Img_alt, element.Img, element.Protein]);
+                });
             }
+
+            function search() {
+                const val = document.getElementById("searchTerm").value;
+                let body1 = document.getElementById("body1");
+                let body2 = document.getElementById("body2");
+                let body3 = document.getElementById("body3");
+                body1.innerHTML = "<h2> Chicken </h2> <ul>";
+                body2.innerHTML = "<h2> Beef </h2> <ul>";
+                body3.innerHTML = "<h2> Grain </h2> <ul>";
+
+                products.forEach((p) => {
+                        console.log(p);
+                        if (p[0].includes(val)) {
+                            switch (p[4]) {
+                                case "Chicken":
+                                    body1.innerHTML = body1.innerHTML + getFood(p);
+                                    break;
+                                case "Beef":
+                                    body2.innerHTML = body2.innerHTML + getFood(p);
+                                    break;
+                                case "Grain":
+                                    body3.innerHTML = body3.innerHTML + getFood(p);
+                                    break;
+                                default:
+                                    break;
+                            } 
+                        }
+                    }
+                );
+            }
+
+            function getFood(elem) {
+                let url = "/recipeDisplay?ID=" + elem[1];
+                let a = "<div class='hover-box' onmouseover='showPopup(this)' onmouseleave='hidePopup(this)'> <a href=" + url + ">" + elem[0] + "</a>" + " <div class='popup'> <img src='" + elem[3] + "' alt='" + elem[2] + "'> </div> </div> <br> <br>";
+                return a;
+            }
+
         </script>
     </body>
 </html>
